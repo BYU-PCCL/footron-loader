@@ -1,18 +1,17 @@
-const { app, BrowserWindow } = require("electron");
-const path = require("path");
-const fs = require("fs");
-
+const { app } = require("electron");
 const { env } = process;
 
 let win;
 
 async function createWindow() {
+  const { app, BrowserWindow } = require("electron");
+  const path = require("path");
   win = new BrowserWindow({
     frame: false,
     show: false,
     width: 2162,
     height: 1216,
-    backgroundColor: "#fafafa",
+    backgroundColor: "black",
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
@@ -28,10 +27,8 @@ async function createWindow() {
   await win.loadFile("index.html");
 }
 
-app.whenReady().then(() => {
-  setTimeout(async function () {
+app.whenReady().then(async () => {
     await createWindow();
-  }, 1000);
 });
 
 app.on("window-all-closed", () => {
