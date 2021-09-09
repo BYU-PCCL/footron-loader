@@ -10,6 +10,8 @@ async function createWindow() {
   win = new BrowserWindow({
     frame: false,
     show: false,
+    width: 2162,
+    height: 1216,
     backgroundColor: "#fafafa",
     webPreferences: {
       nodeIntegration: true,
